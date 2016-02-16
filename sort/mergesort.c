@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUMS 10
+#define NUMS 8
 
 int *src, *tmp;
 
