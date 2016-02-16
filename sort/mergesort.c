@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUMS 8
+#define NUMS 4
 
 int *src, *tmp;
 
 int mergesort(int *tmp, int *sortstart, int sortnums) {
-    int i = 0;
+    int i = 0,j = 0,index = 0;
     int *arrayA = NULL, *arrayB = NULL;
     if(sortstart) {
         arrayA = sortstart;
@@ -15,15 +15,18 @@ int mergesort(int *tmp, int *sortstart, int sortnums) {
         printf("do not get sort source num sets.\n");
         exit(-1);
     }
-    for(i = 0; i<sortnums/2; i++) {
-        if(arrayA[i] < arrayB[i]) {
-            tmp[i] = arrayA[i];
-            tmp[i+1] = arrayB[i];
+    for(i = 0,j = 0; index<sortnums; ) {
+        if(arrayA[i] <= arrayB[j]) {
+            tmp[index] = arrayA[i];
+            index++;
             i++;                   // step with 2 steps.
+        } else if(arrayA[i] > arrayB[j]) {
+            tmp[index] = arrayB[j];
+            index++;
+            j++;
         }
-        
     }
-    for(i = 0; i<sortnums/2; i++) {
+    for(i = 0; i<sortnums; i++) {
         sortstart[i] = tmp[i];
     }
     return 1;
@@ -45,7 +48,6 @@ int main() {
         }
     }
     for(i=0; i<NUMS; i++) {
-        src[i] = rand()%100+1;
         printf("%d ", src[i]);
     }
     printf("\n");
