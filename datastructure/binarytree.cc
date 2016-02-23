@@ -3,6 +3,7 @@
   
 #define STACKINITSIZE 100  
 #define STACKINCREASESIZE 20  
+//测试数据，输入 ABC##D##E#F##
   
 typedef char ElemType;  
 //树结构  
