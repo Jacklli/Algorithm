@@ -15,8 +15,7 @@ typedef struct tree {
 }TreeNode,*Tree;  
   
 //栈结构  
-typedef struct stack  
-{  
+typedef struct stack { 
     Tree * base;  
     Tree * top;  
     int stacksize;  
